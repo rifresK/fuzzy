@@ -23,7 +23,7 @@ alerta['baixo'] = fuzz.trimf(alerta.universe, [0, 0, 0.5])
 alerta['medio'] = fuzz.trimf(alerta.universe, [0, 0.5, 1])
 alerta['alto'] = fuzz.trimf(alerta.universe, [0.5, 1, 1])
 
-# Visualizando as funções de pertinência
+# Visualizando as funções
 campo_eletrico.view()
 precipitacao.view()
 alerta.view()
@@ -31,7 +31,7 @@ alerta.view()
 # Mostrar todos os gráficos
 plt.show()
 
-# Regras de inferência baseadas nas regras do artigo
+# Regras de inferência 
 regra1 = ctrl.Rule(campo_eletrico['alto'] & precipitacao['forte'], alerta['alto'])
 regra2 = ctrl.Rule(campo_eletrico['medio'] & precipitacao['media'], alerta['medio'])
 regra3 = ctrl.Rule(campo_eletrico['baixo'] & precipitacao['fraca'], alerta['baixo'])
@@ -53,5 +53,5 @@ print(f"Valor de alerta: {sistema_alerta.output['alerta']}")
 # Visualizando o resultado da defuzificação
 alerta.view(sim=sistema_alerta)
 
-# Espera até que o usuário pressione Enter para fechar os gráficos
+
 input("Pressione Enter para fechar os gráficos...")
